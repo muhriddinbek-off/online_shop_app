@@ -3,6 +3,7 @@ import 'package:online_shop_app/screens/Skip.dart';
 import 'package:online_shop_app/screens/get_started.dart';
 import 'package:online_shop_app/screens/sign_up.dart';
 import 'package:online_shop_app/screens/start_page.dart';
+import 'package:online_shop_app/screens/welcome_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         "skip-page": (context) => const SkipPage(),
         "get-started": (context) => const GetStarted(),
         "sign-up": (context) => const SignUpPage(),
+        'welcome-page': (context) => const WelcomePage(),
       },
     );
   }
