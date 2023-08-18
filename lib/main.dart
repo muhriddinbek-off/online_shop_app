@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/screens/Skip.dart';
+import 'package:online_shop_app/screens/forgot_password.dart';
 import 'package:online_shop_app/screens/get_started.dart';
 import 'package:online_shop_app/screens/sign_up.dart';
 import 'package:online_shop_app/screens/start_page.dart';
+import 'package:online_shop_app/screens/verification_code.dart';
 import 'package:online_shop_app/screens/welcome_page.dart';
 
 void main() {
@@ -23,6 +25,8 @@ class MyApp extends StatelessWidget {
         "get-started": (context) => const GetStarted(),
         "sign-up": (context) => const SignUpPage(),
         'welcome-page': (context) => const WelcomePage(),
+        'forget-password': (context) => const ForgetPassword(),
+        'verification-code': (context) => const VeriticationCode(),
       },
     );
   }

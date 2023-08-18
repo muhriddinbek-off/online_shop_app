@@ -62,7 +62,11 @@ class WelcomePage extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  ButtonTopics(title: 'Login', onchange: () {}),
+                  ButtonTopics(
+                      title: 'Login',
+                      onchange: () {
+                        Navigator.pushNamed(context, 'forget-password');
+                      }),
                 ],
               ),
             ],
