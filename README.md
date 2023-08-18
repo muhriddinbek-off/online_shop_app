@@ -1,6 +1,7 @@
 # online_shop_app
 
 A new Flutter project.
+<img src = "first_page.jpg">
 
 ## Getting Started
 
