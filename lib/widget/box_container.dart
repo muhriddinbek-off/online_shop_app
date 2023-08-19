@@ -15,7 +15,10 @@ class BoxContainer extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       child: const TextField(
-        decoration: InputDecoration(border: InputBorder.none),
+        autocorrect: false,
+        maxLength: 1,
+        textAlign: TextAlign.center,
+        decoration: InputDecoration(counter: Offstage(), border: InputBorder.none),
         style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500, color: Color(0xFF1D1E20)),
       ),
     );

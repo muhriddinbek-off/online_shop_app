@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/widget/buttons/arrow_back.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:online_shop_app/widget/buttons/button_topics.dart';
 
 import '../widget/box_container.dart';
 
@@ -41,7 +42,26 @@ class VeriticationCode extends StatelessWidget {
                   BoxContainer(),
                   BoxContainer(),
                 ],
-              )
+              ),
+              Expanded(child: Container()),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  Text('00:20', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w500, color: Color(0xFF1D1E20))),
+                  Text('  resend confirmation code.', style: TextStyle(fontSize: 13, fontWeight: FontWeight.w400, color: Color(0xFF8F959E))),
+                ],
+              ),
+              const SizedBox(height: 20),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  ButtonTopics(
+                      title: 'Confirm Code',
+                      onchange: () {
+                        Navigator.pushNamed(context, 'new-password');
+                      }),
+                ],
+              ),
             ],
           ),
         ),
