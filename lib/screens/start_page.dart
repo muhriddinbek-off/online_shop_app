@@ -22,7 +22,7 @@ class _StartPageState extends State<StartPage> {
   // }
 
   void next() {
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushNamed(context, 'skip-page');
     });
   }

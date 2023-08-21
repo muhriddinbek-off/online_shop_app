@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/forgot_password.dart';
+import 'package:online_shop_app/screens/new_password.dart';
 import 'package:online_shop_app/widget/buttons/arrow_back.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_shop_app/widget/buttons/button_topics.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../widget/box_container.dart';
 
@@ -19,7 +22,13 @@ class VeriticationCode extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 45),
-              const ArrowBack(),
+              ArrowBack(
+                ontap: () => Navigator.of(context).push(PageTransition(
+                  child: const ForgetPassword(),
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 600),
+                )),
+              ),
               const SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -58,7 +67,12 @@ class VeriticationCode extends StatelessWidget {
                   ButtonTopics(
                       title: 'Confirm Code',
                       onchange: () {
-                        Navigator.pushNamed(context, 'new-password');
+                        Navigator.of(context).push(PageTransition(
+                          child: const NewPassword(),
+                          type: PageTransitionType.bottomToTop,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 800),
+                        ));
                       }),
                 ],
               ),

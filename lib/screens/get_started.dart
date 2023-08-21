@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/Skip.dart';
+import 'package:online_shop_app/screens/sign_up.dart';
 import 'package:online_shop_app/widget/buttons/arrow_back.dart';
+import 'package:page_transition/page_transition.dart';
 import '../widget/buttons/button_topics.dart';
 import '../widget/buttons/text_witget.dart';
 import '../widget/sacial_network.dart';
 
-class GetStarted extends StatelessWidget {
+class GetStarted extends StatefulWidget {
   const GetStarted({super.key});
 
+  @override
+  State<GetStarted> createState() => _GetStartedState();
+}
+
+class _GetStartedState extends State<GetStarted> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,7 +23,14 @@ class GetStarted extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 45),
-          const ArrowBack(),
+          ArrowBack(
+            ontap: () => Navigator.of(context).push(PageTransition(
+              child: const SkipPage(),
+              type: PageTransitionType.rightToLeft,
+              childCurrent: widget,
+              duration: const Duration(milliseconds: 600),
+            )),
+          ),
           const SizedBox(height: 15),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -36,7 +51,12 @@ class GetStarted extends StatelessWidget {
               ButtonTopics(
                   title: 'Create an Account',
                   onchange: () {
-                    Navigator.pushNamed(context, "sign-up");
+                    Navigator.of(context).push(PageTransition(
+                      child: const SignUpPage(),
+                      type: PageTransitionType.bottomToTop,
+                      childCurrent: widget,
+                      duration: const Duration(milliseconds: 800),
+                    ));
                   }),
             ],
           ),

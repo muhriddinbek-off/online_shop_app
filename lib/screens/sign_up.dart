@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/get_started.dart';
+import 'package:online_shop_app/screens/welcome_page.dart';
 import 'package:online_shop_app/widget/buttons/arrow_back.dart';
 import 'package:online_shop_app/widget/buttons/remember.dart';
 import 'package:online_shop_app/widget/text_field/input_text.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../widget/buttons/button_topics.dart';
 
@@ -19,7 +22,13 @@ class SignUpPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 45),
-              const ArrowBack(),
+              ArrowBack(
+                ontap: () => Navigator.of(context).push(PageTransition(
+                  child: const GetStarted(),
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 600),
+                )),
+              ),
               const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -40,7 +49,12 @@ class SignUpPage extends StatelessWidget {
                   ButtonTopics(
                       title: 'Sign Up',
                       onchange: () {
-                        Navigator.pushNamed(context, 'welcome-page');
+                        Navigator.of(context).push(PageTransition(
+                          child: const WelcomePage(),
+                          type: PageTransitionType.bottomToTop,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 800),
+                        ));
                       }),
                 ],
               ),

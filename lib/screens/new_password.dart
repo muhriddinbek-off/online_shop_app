@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/home_page.dart';
+import 'package:online_shop_app/screens/verification_code.dart';
 import 'package:online_shop_app/widget/buttons/arrow_back.dart';
 import 'package:online_shop_app/widget/buttons/button_topics.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../widget/text_field/input_text.dart';
 
@@ -17,7 +20,13 @@ class NewPassword extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 45),
-              const ArrowBack(),
+              ArrowBack(
+                ontap: () => Navigator.of(context).push(PageTransition(
+                  child: const VeriticationCode(),
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 600),
+                )),
+              ),
               const SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -42,7 +51,12 @@ class NewPassword extends StatelessWidget {
                   ButtonTopics(
                       title: 'Reset Password',
                       onchange: () {
-                        Navigator.pushNamed(context, 'home-page');
+                        Navigator.of(context).push(PageTransition(
+                          child: const HomePage(),
+                          type: PageTransitionType.bottomToTop,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 800),
+                        ));
                       }),
                 ],
               ),

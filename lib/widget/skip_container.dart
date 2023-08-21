@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/get_started.dart';
+import 'package:page_transition/page_transition.dart';
 
 class SkipContainer extends StatefulWidget {
   const SkipContainer({super.key});
@@ -43,9 +45,15 @@ class _SkipContainerState extends State<SkipContainer> {
             ),
             const SizedBox(height: 15),
             TextButton(
-                onPressed: () {
-                  Navigator.pushNamed(context, 'get-started');
-                },
+                onPressed: () => Navigator.of(context).push(
+                      PageTransition(
+                        child: const GetStarted(),
+                        type: PageTransitionType.bottomToTop,
+                        childCurrent: widget,
+                        duration: const Duration(milliseconds: 800),
+                        reverseDuration: const Duration(microseconds: 800),
+                      ),
+                    ),
                 child: const Text('Skip', style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500, color: Color(0xFF8F959E)))),
           ],
         ),

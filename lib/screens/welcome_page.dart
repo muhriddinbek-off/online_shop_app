@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/forgot_password.dart';
+import 'package:online_shop_app/screens/sign_up.dart';
 import 'package:online_shop_app/widget/buttons/arrow_back.dart';
 import 'package:online_shop_app/widget/buttons/button_topics.dart';
 import 'package:online_shop_app/widget/buttons/remember.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../widget/text_field/input_text.dart';
 
@@ -19,7 +22,13 @@ class WelcomePage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 45),
-              const ArrowBack(),
+              ArrowBack(
+                ontap: () => Navigator.of(context).push(PageTransition(
+                  child: const SignUpPage(),
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 600),
+                )),
+              ),
               const SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -65,7 +74,12 @@ class WelcomePage extends StatelessWidget {
                   ButtonTopics(
                       title: 'Login',
                       onchange: () {
-                        Navigator.pushNamed(context, 'forget-password');
+                        Navigator.of(context).push(PageTransition(
+                          child: const ForgetPassword(),
+                          type: PageTransitionType.bottomToTop,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 800),
+                        ));
                       }),
                 ],
               ),

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/verification_code.dart';
+import 'package:online_shop_app/screens/welcome_page.dart';
 import 'package:online_shop_app/widget/buttons/arrow_back.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_shop_app/widget/buttons/button_topics.dart';
+import 'package:page_transition/page_transition.dart';
 
 import '../widget/text_field/input_text.dart';
 
@@ -19,7 +22,13 @@ class ForgetPassword extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 45),
-              const ArrowBack(),
+              ArrowBack(
+                ontap: () => Navigator.of(context).push(PageTransition(
+                  child: const WelcomePage(),
+                  type: PageTransitionType.rightToLeft,
+                  duration: const Duration(milliseconds: 600),
+                )),
+              ),
               const SizedBox(height: 25),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +56,12 @@ class ForgetPassword extends StatelessWidget {
                   ButtonTopics(
                       title: 'Confirm Mail',
                       onchange: () {
-                        Navigator.pushNamed(context, 'verification-code');
+                        Navigator.of(context).push(PageTransition(
+                          child: const VeriticationCode(),
+                          type: PageTransitionType.bottomToTop,
+                          childCurrent: this,
+                          duration: const Duration(milliseconds: 800),
+                        ));
                       }),
                 ],
               ),
