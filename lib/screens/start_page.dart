@@ -22,7 +22,7 @@ class _StartPageState extends State<StartPage> {
   // }
 
   void next() {
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushNamed(context, 'skip-page');
     });
   }
@@ -36,7 +36,7 @@ class _StartPageState extends State<StartPage> {
         children: [
           AnimatedContainer(
             height: sizeImage,
-            duration: const Duration(seconds: 5),
+            duration: const Duration(seconds: 2),
             child: Center(
                 child: InkWell(
                     onTap: () {

@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:online_shop_app/widget/search/search.dart';
 import 'package:online_shop_app/widget/text_field/title_text.dart';
 
+import '../widget/brand_logo.dart';
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -34,25 +36,37 @@ class HomePage extends StatelessWidget {
               child: Container(padding: const EdgeInsets.all(9), height: 45, width: 45, decoration: BoxDecoration(borderRadius: BorderRadius.circular(50), color: const Color(0xFFF5F6FA)), child: SvgPicture.asset('assets/images/menu.svg')));
         }),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 20),
-            Column(
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(height: 20),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 Text('Hello', style: TextStyle(fontSize: 28, fontWeight: FontWeight.w600, color: Color(0xFF1D1E20))),
                 Text('Welcome to Laza.', style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400, color: Color(0xFF8F959E))),
               ],
             ),
-            const SizedBox(height: 20),
-            const SearchGolosovoy(),
-            const SizedBox(height: 23),
-            const TitleText(title1: 'Choose Brand', title2: 'View All'),
-          ],
-        ),
+          ),
+          const SizedBox(height: 20),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: SearchGolosovoy(),
+          ),
+          const SizedBox(height: 23),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: TitleText(title1: 'Choose Brand', title2: 'View All'),
+          ),
+          const SizedBox(height: 15),
+          const SizedBox(height: 53, child: BrandLogo()),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            child: TitleText(title1: 'New Arraival', title2: 'View All'),
+          )
+        ],
       ),
     );
   }

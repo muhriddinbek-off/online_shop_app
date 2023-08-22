@@ -8,8 +8,13 @@ import 'package:online_shop_app/screens/sign_up.dart';
 import 'package:online_shop_app/screens/start_page.dart';
 import 'package:online_shop_app/screens/verification_code.dart';
 import 'package:online_shop_app/screens/welcome_page.dart';
+import 'package:flutter/services.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+  ));
   runApp(const MyApp());
 }
 
