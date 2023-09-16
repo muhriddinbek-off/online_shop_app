@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:online_shop_app/servises/data/Product_api.dart';
+import 'package:online_shop_app/servises/data/modals/products.dart';
 import 'package:online_shop_app/servises/data/modals/products_modal.dart';
 
 class ProviderApiServise extends ChangeNotifier {
@@ -8,6 +9,7 @@ class ProviderApiServise extends ChangeNotifier {
   }
   bool isLoading = false;
   List<ProductModal> productInfo = [];
+  List<Products> productInformation = [];
   String nameProduct = 'Smartphones';
   Future<void> getApiInfo() async {
     getIsLoading();

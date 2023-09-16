@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:online_shop_app/servises/data/Product_api.dart';
+import 'package:online_shop_app/servises/data/api/provider_id.dart';
+import 'package:online_shop_app/servises/data/modals/products.dart';
 
 import 'package:online_shop_app/widget/container_grid.dart';
 // import 'package:online_shop_app/screens/add_to_cart.dart';
 import 'package:online_shop_app/widget/search/search.dart';
 import 'package:online_shop_app/widget/text_field/title_text.dart';
+import 'package:provider/provider.dart';
 
 import '../drower/drower_parts/drower_page/drower_page.dart';
 import '../navigation_bar/bottom_navigation_bar.dart';
@@ -87,6 +91,9 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: const BottomNavigationPanel(),
+      // floatingActionButton: FloatingActionButton(onPressed: () {
+      //   context.read<PrductViewModal>().getProductInfo(1);
+      // }),
     );
   }
 }

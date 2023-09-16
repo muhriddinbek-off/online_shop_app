@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:online_shop_app/screens/add_to_cart.dart';
 import 'package:online_shop_app/servises/data/Product_api.dart';
 import 'package:online_shop_app/servises/data/api/Provider_api.dart';
+import 'package:online_shop_app/servises/data/api/provider_id.dart';
 import 'package:provider/provider.dart';
 
 class ContainerGrid extends StatefulWidget {
@@ -30,14 +32,29 @@ class _ContainerGridState extends State<ContainerGrid> {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
-                  alignment: Alignment.topRight,
-                  height: 203,
-                  width: MediaQuery.of(context).size.height * 0.4,
-                  margin: const EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    image: DecorationImage(image: NetworkImage(value.productInfo[0].products[index].thumbnail), fit: BoxFit.cover),
+                InkWell(
+                  onTap: () {
+                    if (context.read<PrductViewModal>().products.isNotEmpty) {
+                      context.read<PrductViewModal>().products.removeAt(0);
+                    }
+                    context.read<PrductViewModal>().getProductInfo(value.productInfo[0].products[index].id);
+                    context.read<ProductApi>().getProductName(value.productInfo[0].products[index].id);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AddToCart(),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    alignment: Alignment.topRight,
+                    height: 203,
+                    width: MediaQuery.of(context).size.height * 0.4,
+                    margin: const EdgeInsets.all(15),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      image: DecorationImage(image: NetworkImage(value.productInfo[0].products[index].thumbnail), fit: BoxFit.cover),
+                    ),
                   ),
                 ),
                 Padding(

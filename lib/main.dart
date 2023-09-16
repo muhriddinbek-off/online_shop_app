@@ -14,6 +14,7 @@ import 'package:online_shop_app/screens/welcome_page.dart';
 import 'package:flutter/services.dart';
 import 'package:online_shop_app/servises/data/Product_api.dart';
 import 'package:online_shop_app/servises/data/api/Provider_api.dart';
+import 'package:online_shop_app/servises/data/api/provider_id.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => ProviderApiServise()),
         ChangeNotifierProvider(create: (context) => ProductApi()),
+        ChangeNotifierProvider(create: (context) => PrductViewModal()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
