@@ -11,16 +11,6 @@ class StartPage extends StatefulWidget {
 double sizeImage = 36;
 
 class _StartPageState extends State<StartPage> {
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   Future.delayed(const Duration(seconds: 5), () {
-  //     Navigator.pushNamed(context, 'skip-page');
-  //   });
-  //   // sizeImage = 50;
-  //   super.initState();
-  // }
-
   void next() {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushNamed(context, 'skip-page');

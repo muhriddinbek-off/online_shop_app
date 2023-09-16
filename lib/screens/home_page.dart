@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+
 import 'package:online_shop_app/widget/container_grid.dart';
 // import 'package:online_shop_app/screens/add_to_cart.dart';
 import 'package:online_shop_app/widget/search/search.dart';
 import 'package:online_shop_app/widget/text_field/title_text.dart';
 
+import '../drower/drower_parts/drower_page/drower_page.dart';
+import '../navigation_bar/bottom_navigation_bar.dart';
 import '../widget/brand_logo.dart';
-import '../widget/container_grid.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFFEFEFE),
-      drawer: const Drawer(),
+      drawer: const MyDrower(),
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.transparent,
@@ -72,13 +79,14 @@ class HomePage extends StatelessWidget {
                 child: TitleText(title1: 'New Arraival', title2: 'View All'),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.48,
+                height: MediaQuery.of(context).size.height * 0.50,
                 child: const ContainerGrid(),
               ),
             ],
           ),
         ),
       ),
+      bottomNavigationBar: const BottomNavigationPanel(),
     );
   }
 }
